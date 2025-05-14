@@ -1,1 +1,41 @@
+import java.util.Scanner;
+
+public class GussTheNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int random = (int)(Math.random() * 100) + 1; // 1 to 100(Here i use Math.random() to generate a random number)(Math.random() is a built-in Java method that returns a random decimal number)
+        int attempts = 5;
+        boolean guessed = false; //here i use boolean datatype to check if the user guessed the number or not
+
+        System.out.println("Welcome to Guess the Number!");
+        System.out.println("I'm thinking of a number between 1 and 100.");
+        System.out.println("   ");
+        System.out.println("You have " + attempts + " attempts to guess it.");
+        System.out.println(" ");
+
+        for (int i = 1; i <= attempts; i++) {
+            System.out.print("Attempt " + i + ": Enter your guess: ");
+            int a= scanner.nextInt();
+        if (a == random){
+                System.out.println(" Correct! You guessed the Correct number.");
+                guessed = true;
+                break;
+            } 
+        else if (a< random) {
+                System.out.println("Too low!");
+            }
+        else {
+                System.out.println("Too high!");
+            }
+        }
+
+        if (!guessed) {
+            System.out.println("Sorry, you're out of attempts. The number was: " + random);
+            System.out.println("-------------------X Restart the game to try again. X-------------------");   
+        }
+
+        scanner.close();
+    }
+}
 
